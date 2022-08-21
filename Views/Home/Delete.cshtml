@@ -1,0 +1,57 @@
+﻿@model poc_msat.Models.Order
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<form method="post">
+    <div>
+        <h4>Customer</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(a => a.Customer.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(a => a.Customer.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(a => a.Customer.Mobile)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(a => a.Customer.Mobile)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(a => a.OrderItems)
+            </dt>
+            <dd class="col-sm-10">
+                @if (Model.OrderItems.Count > 0)
+                {
+                    var Ors = Model.OrderItems.Select(x => x.Name);
+                    string StrOrs = string.Join(",", Ors);
+                    <span>@StrOrs</span>
+                }
+                else
+                {
+                    <span></span>
+                }
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <span>
+            Are you sure, to delete this record?
+        </span>
+    </div>
+    <div>
+        <div style="width:250px;margin:5px 0px;">
+            <input type="submit" id="btnYes" asp-action="delete" class="btn btn-primary float-start" value="Yes" />
+            @Html.ActionLink("No", "Index", "Home", null, new {@class="btn btn-primary float-end"})
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</form>

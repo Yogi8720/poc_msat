@@ -1,0 +1,77 @@
+﻿@model poc_msat.Models.GetOrderViewModel
+
+@{
+    ViewData["Title"] = "GetOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Get Orders</h1>
+
+<form asp-action="index" method="post">
+    
+    <div align="center">
+        <div align="center" style="font-weight:bold;margin-bottom:5px;">
+            <span>
+                Select Order Items
+            </span>
+        </div>
+        @Html.ListBoxFor(x=> x.SelectedItems, Model.SelectListItems ,new { style="width:200px;height:150px;margin-bottom:5px;" })
+        <br />
+
+        <input type="submit" asp-action="index" class="btn btn-primary" value="Get" style="width:150px;" />
+        @Html.ActionLink("All","index", new{}, new {@class="btn btn-secondary"})
+    </div>
+</form>
+<hr />
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Orders[0].Customer.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orders[0].Customer.Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orders[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orders[0].OrderItems)
+            </th>
+            <th>Total record(s): @Model.Orders.Count.ToString()</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Orders)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.Mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @{
+                        var Ors = item.OrderItems.Select(x => x.Name);
+                        string StrOrs = string.Join(", ", Ors);
+                                        <span>@StrOrs</span>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
