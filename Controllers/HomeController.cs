@@ -81,11 +81,19 @@ namespace poc_msat.Controllers
         public IActionResult Index()
         {
             GetOrderViewModel model = new GetOrderViewModel();
+            var data = _DBContext.Orders;
+            if (data == null)
+            {
+                model.Orders = new List<Order>();
+            }
+            else 
+            { 
             model.Orders = _DBContext.Orders.ToList();
-
+            }
             model.SelectListItems = Constant.SelectListItems;
 
             return View("getorders", model);
+            
         }
 
         [HttpPost]

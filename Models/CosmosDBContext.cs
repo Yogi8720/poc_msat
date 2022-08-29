@@ -4,6 +4,7 @@ namespace poc_msat.Models
 {
     public class CosmosDBContext:DbContext
     {
+        public CosmosDBContext() { }
         public CosmosDBContext(DbContextOptions<CosmosDBContext> option) : base(option)
         {
         }

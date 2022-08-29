@@ -10,6 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C0226469-1E34-4FE7-B4E5-35F14EF10CA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "poc_msat.Tests", "..\poc_msat.Tests\poc_msat.Tests.csproj", "{D2F6846A-3118-4B9C-AF55-0629CC4FEBF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +24,16 @@ Global
 		{58ECE680-F746-49F4-8EDC-ED67DBB11ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58ECE680-F746-49F4-8EDC-ED67DBB11ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58ECE680-F746-49F4-8EDC-ED67DBB11ABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2F6846A-3118-4B9C-AF55-0629CC4FEBF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F6846A-3118-4B9C-AF55-0629CC4FEBF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F6846A-3118-4B9C-AF55-0629CC4FEBF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F6846A-3118-4B9C-AF55-0629CC4FEBF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D2F6846A-3118-4B9C-AF55-0629CC4FEBF9} = {C0226469-1E34-4FE7-B4E5-35F14EF10CA2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6578C5A4-3A2F-4ED0-9555-9E740671C2E8}
